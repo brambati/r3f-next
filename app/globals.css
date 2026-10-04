@@ -1,0 +1,75 @@
+/* globals.css */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #050810;
+  color: #e2e4ed;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* Canvas wrapper ocupa a tela toda */
+.scene-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* O Canvas do R3F já é position absolute por padrão */
+/* Mas garantimos com CSS */
+.scene-wrapper canvas {
+  display: block;
+}
+
+/* UI sobreposta ao canvas */
+.scene-ui {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: none; /* não bloqueia o canvas */
+  z-index: 10;
+}
+
+.scene-ui h2 {
+  font-size: .75rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+}
+
+.color-buttons {
+  display: flex;
+  gap: .6rem;
+  pointer-events: all; /* re-ativa para os botões */
+}
+
+.color-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: transform .2s, outline-offset .2s;
+}
+
+.color-btn:hover { transform: scale(1.2); }
+
+/* Seção de conteúdo abaixo do 3D */
+.content {
+  padding: 6rem 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.content p { color: #52596b; font-size: 1rem; line-height: 1.7; }
